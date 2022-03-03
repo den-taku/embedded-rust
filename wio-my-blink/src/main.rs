@@ -5,11 +5,14 @@ use panic_halt as _;
 use support::*;
 
 #[entry]
-fn main() -> ! {
+fn func() -> ! {
+    // let error: Result<(), ()> = Err(());
+    // error.unwrap();
+
     let (mut user_led, mut delay) = support::init();
 
     loop {
-        delay.delay_ms(5_000u16);
+        delay.delay_ms(50u16);
         user_led.toggle();
     }
 }
